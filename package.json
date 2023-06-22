@@ -1,0 +1,13 @@
+{
+  "name": "mern-monorepo",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"yarn workspace @mern-monorepo/web dev\" \"yarn workspace @mern-monorepo/api dev\""
+  }
+}
