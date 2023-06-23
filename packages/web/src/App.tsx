@@ -1,7 +1,7 @@
-import { HelloWorld } from './components/HelloWorld/HelloWorld'
+import TodoInterface from './components/Todo'
 
 function App() {
-  return <HelloWorld></HelloWorld>
+  return <TodoInterface></TodoInterface>
 }
 
 export default App

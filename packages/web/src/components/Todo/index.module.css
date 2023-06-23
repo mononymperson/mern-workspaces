@@ -1,0 +1,37 @@
+.todoContainer {
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0.35rem;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.todoHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.todoBody {
+    overflow: auto;
+    padding: 0;
+}
+
+.errorMessage {
+    color: red;
+    display: block;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.todoItem span {
+    flex: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

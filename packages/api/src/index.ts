@@ -1,9 +1,10 @@
 import cors from 'cors'
-import express from 'express'
+import express, { Request } from 'express'
 import { env } from './constans'
 import { connectDB } from './db'
-import { auth } from './features/auth'
-import { user } from './features/user'
+import { todo } from './features/todo'
+import { errorHandler, responseHandler } from './handlers'
+import { TypedResponse } from './interfaces'
 ;(async function () {
   const app = express()
 
@@ -13,16 +14,18 @@ import { user } from './features/user'
     })
   )
 
-  app.get('/auth', auth.router)
-  app.get('/user', user.router)
+  app.use(express.json())
+  app.use(responseHandler)
 
-  app.get('/', (req, res) => {
-    res.send({
-      code: 200,
-      message: 'success',
-      data: 'API version: 1.0.0',
+  app.use('/todo', todo.router)
+
+  app.get('/', (req: Request, res: TypedResponse<string>) => {
+    res.json({
+      data: 'Api version: ' + env.API_VERSION,
     })
   })
+
+  app.use(errorHandler)
 
   try {
     await connectDB()
